@@ -1,24 +1,24 @@
-#include "graph.h"
-#include <fstream>
+#include "Reader.h"
+
 #include <iostream>
-#include <cmath>
-#include <random>
+#include <fstream>
 
-const int MAX_VERTICES = 500;
-const double K = 0.1; // коэффициент отталкивания
-const double L= 100.0; // расстояние м/д вершинами
-const double EPS = 1e-5; // сравнение с погрешностью
-void readGraph(std::string grap, std::vector<Vertex>& vertices)
-{
-  std::ifstream infile()
-
-  
-  
+void readInputFromFile(const std::string& filename, int& numVertices, int& width, int& height, std::vector<Edge>& edges) {
+    std::ifstream file(filename);
+    if (file.is_open()) {
+        file >> numVertices >> width >> height;
+        int vertex1, vertex2;
+        while (file >> vertex1 >> vertex2) {
+            edges.push_back({ static_cast<size_t>(vertex1), static_cast<size_t>(vertex2) });
+        }
+        file.close();
+    }
+    else {
+        std::cerr << "Unable to open file: " << filename << std::endl;
+    }
 }
 
 
 
 
-
-void saveBMP(const std::vector<Vertex>& vertices, const std::string& filename);
 
