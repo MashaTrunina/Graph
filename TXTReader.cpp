@@ -1,4 +1,4 @@
-#include "Reader.h"
+#include "TXTReader.h"
 
 #include <iostream>
 #include <fstream>
