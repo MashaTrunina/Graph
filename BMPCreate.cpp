@@ -1,6 +1,6 @@
 #include <fstream>
 #include <cmath>
-#include "BMPGenerator.h"
+#include "BMPCreate.h"
 
 BMPGenerator::BMPGenerator(int width, int height, const std::vector<Vertex>& vertices, const std::vector<Edge>& edges)
     : m_width(width), m_height(height), m_vertices(vertices), m_edges(edges) {}
