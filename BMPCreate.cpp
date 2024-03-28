@@ -35,7 +35,7 @@ void BMPGenerator::writeHeader(std::ofstream& file) {
 }
 
 void BMPGenerator::writeImageData(std::ofstream& file) {
-    std::vector<std::vector<bool>> bitmap(m_height, std::vector<bool>(m_width, false));
+    std::vector<std::vector<bool>> bitmap(m_height, std::vector<bool>(m_width, false)); //// Создаем двумерный вектор bitmap размером m_height на m_width
 
     for (const auto& edge : m_edges) {
         drawLine(bitmap, m_vertices[edge.vertex1].x, m_vertices[edge.vertex1].y,
@@ -51,8 +51,8 @@ void BMPGenerator::writeImageData(std::ofstream& file) {
 
             file.put(bitmap[y][x] ? static_cast<char>(0) : static_cast<char>(255))
                 .put(bitmap[y][x] ? static_cast<char>(0) : static_cast<char>(255))
-                .put(bitmap[y][x] ? static_cast<char>(0) : static_cast<char>(255));
-        }
+                .put(bitmap[y][x] ? static_cast<char>(0) : static_cast<char>(255)); // Цвет пикселя устанавливается в чёрный (RGB 0, 0, 0) или белый (RGB 255, 255, 255) в зависимости от значения в bitmap[y][x]
+         }
     }
 }
 
